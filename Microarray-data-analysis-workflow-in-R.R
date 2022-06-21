@@ -1,5 +1,5 @@
 #---
-#title: "GLDS-3"
+#title: "GLDS-3 microarray dataset"
 #author: "Abdus Salam"
 #date: "2/25/2022"
 #---
