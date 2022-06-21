@@ -33,7 +33,6 @@ library(pheatmap)
 library(EnhancedVolcano)
 library(org.Dm.eg.db)
 
-
 #W e will start by defining path to the data directory.
 celpath = "E:/Gene_Lab/GLDS3/"
 
@@ -78,7 +77,6 @@ jpeg(name)
 MAplot(data,which=i)
 dev.off()
 }
-
 
 # Normalization of the datset using RMA approach.
 data.rma <- rma(data)
@@ -144,7 +142,6 @@ gse <- data.rma[keep,]
 fit <- lmFit(exprs(gse), design)
 head(fit$coefficients)
 
-
 # Designing contrast matrix for diffrential expression of Cancer probes against controls.
 contrast.matrix = makeContrasts(Flight-Ground, levels=design)
 fit2 = contrasts.fit(fit, contrast.matrix)
@@ -152,7 +149,6 @@ fit2 = contrasts.fit(fit, contrast.matrix)
 # Now we are going to calculate the differential expression by empirical Bayes moderated t-statistics:
 fit2 <- eBayes(fit2)
 topTable(fit2)
-
 
 # How many genes are differentially-expressed overall?
 decideTests(fit2)
@@ -171,7 +167,6 @@ EnhancedVolcano(full_results, lab = rownames(full_results), x = 'logFC', y = 'P.
                 labCol = '#FF6347', selectLab = "NA", 
                 legendLabSize = 10, labSize = 0.00, xlim = c(-4,4), ylim = c(0,10), 
                 title = "Flight vs Ground")
-
 
 # Annotating probes with an IDs 
 ensembl = useMart("ensembl")
@@ -257,21 +252,6 @@ hsa04510 <- pathview(gene.data  = geneList,
                      species    = "dme",
                      limit      = list(gene=max(abs(geneList)), cpd=1))
 
-
 # Dot plot visualising the first KEGG result from above
 dotplot(kk2, showCategory = 10, title = "Enriched Pathways" , split=".sign") + facet_grid(.~.sign)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
