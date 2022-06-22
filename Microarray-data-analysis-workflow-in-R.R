@@ -4,7 +4,7 @@
 #date: "2/25/2022"
 #---
 
-# Loading libraries
+# Loading the required libraries for analysis.
 library(fdrtool)
 library(lattice)
 library(Matrix)
@@ -33,10 +33,11 @@ library(pheatmap)
 library(EnhancedVolcano)
 library(org.Dm.eg.db)
 
-#W e will start by defining path to the data directory.
-celpath = "E:/Gene_Lab/GLDS3/"
+# We will start by defining path to the data directory.
+celpath = "custom_path_to_the_directory"
 
-# Reading all *.CEL (*.cel) files in your current working directory and storing them into the AffyBatch object expdata Where expdata is the new AffyBatch object that will be created at the end of the process operated by the function ReadAffy.
+# Reading all *.CEL (*.cel) files in your current working directory and storing them into the AffyBatch object expdata Where expdata is the new AffyBatch object 
+# that will be created at the end of the process operated by the function ReadAffy.
 data = ReadAffy(celfile.path=celpath)
 
 # Displaying the summary of dataset.
@@ -60,8 +61,8 @@ ph@data[ ,1] = c("Flight", "Flight", "Flight", "Ground", "Ground", "Ground")
 # Visualizing the phenotype data:
 ph@data
 
-# Setting a path to custom directory.
-setwd("E:/Gene_lab/GLDS1/")
+# Setting a path to custom directory for storing the QC plots.
+setwd("custom_path_to_the_directory")
 
 # Displaying the distribution of intensities in each sample before normalization.
 name = "boxplot_before_normalization.jpg"
@@ -100,8 +101,8 @@ dev.off()
 # Displaying the summary of normalized dataset.
 data.rma
 
-# Saving expression values of probes in working directory.
-write.exprs(data.rma, file="E:/Gene_lab/GLDS3/Expression_values.xls")
+# Saving raw expression values of probes in a custom directory.
+write.exprs(data.rma, file="custom_path_to_the_directory/Expression_values.xls")
 
 # PCA of nomralized dataset based on sample characteristics.
 PCA <- prcomp(t(exprs(data.rma)))
@@ -168,7 +169,7 @@ EnhancedVolcano(full_results, lab = rownames(full_results), x = 'logFC', y = 'P.
                 legendLabSize = 10, labSize = 0.00, xlim = c(-4,4), ylim = c(0,10), 
                 title = "Flight vs Ground")
 
-# Annotating probes with an IDs 
+# Annotating probes with IDs that are reteirved from "Ensembl".  
 ensembl = useMart("ensembl")
 ensembl = useDataset("dmelanogaster_gene_ensembl",mart=ensembl)
 IDs <- getBM(attributes=c('affy_drosophila_2','entrezgene_id'), 
@@ -180,7 +181,7 @@ full_results <- dplyr::inner_join(full_results, IDs, by="ID")
 full_results <- full_results %>% filter(full_results$P.Value < 0.05)
 
 # Saving the DEGs reuslts in a working directory.
-write.csv(full_results, file="E:/Gene_Lab/GLDS3/full_results.csv", row.names = F, quote = F)
+write.csv(full_results, file="custom_path_to_the_directory/full_results.csv", row.names = F, quote = F)
 
 # Making the list ready for gene set enrciment analysis adn filtering for significantly expressed genes.
 genelist <- cbind(full_results$entrezgene_id.x, full_results$logFC)
@@ -222,7 +223,7 @@ res_GSEA <- GSEA(geneList, TERM2GENE = msigdbr_t2g)
 # Convert it into a dataFrame:
 res_GSEA_df <- as.data.frame(res_GSEA)
 
-#Visualization
+# Visualization
 dotplot(res_GSEA, showCategory=20, font=5)
 
 # Convert gene ID to Symbol
@@ -242,7 +243,7 @@ kk2 <- gseKEGG(geneList     = geneList,
                pAdjustMethod = "none",
                keyType       = "ncbi-geneid")
 
-# To look at the columns:
+# To look at the columns and observe biological pathways of your interest:
 head(kk2)
 kk2[c(1:10),c(2,3:4, 6)]
 
