@@ -1,5 +1,5 @@
 #---
-#title: "GLDS-3 microarray dataset"
+#title: "GLDS-3 microarray dataset analysis in R"
 #author: "Abdus Salam"
 #date: "2/25/2022"
 #---
