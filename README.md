@@ -1,6 +1,6 @@
 # Microarray gene expression analysis workflow in R
 
-Gene expression analysis from microarray dataset (raw probe intensities) has 
+Gene expression analysis from a microarray dataset (raw probe intensities) has 5 main steps: 
 
 * Downloading and importing the dataset. 
 * Filtering poor signals
