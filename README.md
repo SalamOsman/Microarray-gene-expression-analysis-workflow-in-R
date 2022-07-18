@@ -1,4 +1,4 @@
-# Microarray-gene-expression-analysis-workflow-in-R
+# Microarray gene expression analysis workflow in R
 
 Gene expression analysis from microarray dataset (raw probe intensities) has 
 
