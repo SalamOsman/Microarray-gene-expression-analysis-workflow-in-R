@@ -5,7 +5,7 @@ Gene expression analysis of microarray dataset (raw probe intensities) has follo
 * Downloading and importing the dataset. 
 * Filtering poor signals
 * Normalization
-* Identification of differentiall expressed genes
+* Identification of differentially expressed genes
 * Gene set enrichment analysis
 
 
