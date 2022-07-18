@@ -1,2 +1,5 @@
 # Microarray-gene-expression-analysis-workflow-in-R
-Importing microarray intensity values, normalization, and gene set enrichment analysis.
+
+Gene expression analysis from microarray raw probe intensities dataset has 
+
+* Downloading and importing the dataset. 
