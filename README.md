@@ -11,7 +11,7 @@ Gene expression analysis of microarray dataset (raw probe intensities) has follo
 
 # Preparing the microarray dataset downloaded from NASA GeneLab
 
-Download the microarray dataset (GLDS-3) from the provided url path (https://genelab-data.ndc.nasa.gov/genelab/static/media/dataset/GLDS-3_microarray_E-GEOD-23880.raw.1.zip?version=1) and uncompress it in a local repository. Before starting the analysis, remove samples with accession series (GSM588931-GSM588936 and GSM588940-GSM588945) because these are samples are from larval stages of D. melanogaster.  
+Download the microarray dataset (GLDS-3) from the provided url path (https://genelab-data.ndc.nasa.gov/genelab/static/media/dataset/GLDS-3_microarray_E-GEOD-23880.raw.1.zip?version=1) and uncompress it in a local repository. Before starting the analysis, remove samples with accession series (GSM588931-GSM588936 and GSM588940-GSM588945) because these are samples are from larval stages of D. melanogaster. The final dataset will contain a total of 6 samples of which half will be ground control and half will be space flight studies.  
 
 ## Note: the step for analysis of microarray data from NASA GeneLab is similar to the NCBI-GEO. 
 
