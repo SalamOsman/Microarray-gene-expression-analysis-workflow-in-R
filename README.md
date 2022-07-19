@@ -2,7 +2,7 @@
 
 Gene expression analysis of microarray dataset (raw probe intensities) has following steps: 
 
-* Downloading and importing the dataset. 
+* Downloading and importing the sample files (.CEL format). 
 * Filtering poor signals
 * Normalization
 * Identification of differentially expressed genes
