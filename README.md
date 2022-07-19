@@ -6,7 +6,8 @@ Gene expression analysis of microarray dataset (raw probe intensities) has follo
 * Filtering poor signals
 * Normalization
 * Identification of differentially expressed genes
-* Gene set enrichment analysis
+* Conversion of probe ids to gene ids (Enterez Gene ID). 
+* Enrichment analysis of hallmarks and KEGG terms.
 
 # Preparing the microarray dataset downloaded from NASA GeneLab
 
